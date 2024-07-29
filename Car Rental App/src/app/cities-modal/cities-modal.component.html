@@ -1,0 +1,98 @@
+
+
+<!-- The Modal -->
+<div class="modal" id="locationModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Choose Your Preferred City</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div
+        class="modal-body row"
+        style="padding-top: 50px; padding-bottom: 70px;"
+      >
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <div
+            id="bengaluru"
+            class="cursor-pointer"
+            
+            (click)="selectBengaluru()"
+          >
+          
+            <img src="../assets/Bengaluru.png" alt=""  style="height: 100px;" />
+          </div>
+          <br>
+          <!-- <div style="margin-left: 1%; text-align: center;">Bengaluru</div> -->
+          <div
+            id="bengaluruCity"
+            class="rounded text-background"
+            >Bengaluru</div>
+        </div>
+        <div class="col-md-2">
+          <div 
+          id="mumbai"
+          class="cursor-pointer"
+          (click)="selectMumbai()">
+            <img src="../assets/Mumbai.png" alt="" style="height: 100px;" />
+          </div>
+          <br>
+          <!-- <div style="margin-left: 1%; text-align: center;">Mumbai</div> -->
+          <div
+            id="mumbaiCity"
+            class="rounded text-background"
+            >Mumbai</div>
+        </div>
+        <div class="col-md-2">
+          <div 
+          id="pune"
+          class="cursor-pointer"
+          (click)="selectPune()">
+            <img src="../assets/Pune.png" alt="" style="height: 100px;" />
+          </div>
+          <!-- <div style="margin-left: 1%; text-align: center;">Pune</div> -->
+          <br>
+          <div
+            id="puneCity"
+            class="rounded text-background"
+            >Pune</div>
+        </div>
+        <div class="col-md-2">
+          <div 
+          id="delhi"
+          class="cursor-pointer"
+          (click)="selectDelhi()">
+            <img src="../assets/Delhi.png" alt="" style="height: 100px;" />
+          </div>
+          <!-- <div style="margin-left: 1%; text-align: center;">Delhi</div> -->
+          <br>
+          <div
+            id="delhiCity"
+            class="rounded text-background"
+            >Delhi</div>
+        </div>
+        <div class="col-md-2">
+          <div 
+          id="hyderabad"
+          class="cursor-pointer"
+          (click)="selectHyderabad()">
+            <img src="../assets/Hyderabad.png" alt="" style="height: 100px;" />
+          </div>
+          <!-- <div style="margin-left: 1%; text-align: center;">Hyderabad</div> -->
+          <br>
+          <div
+            id="hyderabadCity"
+            class="rounded text-background"
+            >Hyderabad</div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+  </div>
+</div>

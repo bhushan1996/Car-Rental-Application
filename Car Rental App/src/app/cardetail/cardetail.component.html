@@ -1,0 +1,242 @@
+<app-location-header [pickUp]="pickup" [dropTime]="drop" [headerLocation]="locality"></app-location-header>
+
+<div class="container-fluid row" style="margin-top: 110px;">
+    <!-- <button (click)=bookingConfirmHandler()> check it</button> -->
+    <div class="left-pane col-md-8" style="display: flex">
+        <div class="left-wrapper box-shadow "
+            style="  border-radius : 6px; box-shadow: 0px 2px 8px -2px rgba(31,45,61,0.4)">
+            <div style="padding : 20px" class="checkout-vehicle-template">
+                <div class="listing-car-body" style="display: flex">
+                    <div class="detail-section style = flex">
+                        <div>
+                            <h3>{{cars.carName}}</h3>
+                        </div>
+
+                        <div class="features car-features" style="padding:1px">
+                            <span>
+                                <br /><br /><i class="fas fa-gas-pump"></i>
+                                {{ cars.fuelType }}
+                            </span>
+                            <span>
+                                <i class="fa fa-users"></i>
+                                {{ cars.numOfSeats }} Seater
+                            </span>
+                        </div>
+
+                        <div class="list-item info-text"> 
+                            <p style=" color: #77899b; font-size: 13px">
+                               {{'cardetail.p_27'|translate}}
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="img-section ">
+                        <img class="load-img img-responsive float-right" src="{{ cars.imageUrl }}" />
+                    </div>
+                </div>
+            </div>
+
+            <div><br /></div>
+            <div>
+                <hr />
+            </div>
+            <div class="package-details" style="margin-left: 10px;">
+                <div class="btn-group border rounded" style="width: 300px;">
+                    <button style="background-color: lightgrey; width: 120px; " type="button" disabled class="btn">
+                        {{'cardetail.b_47'|translate}}
+                    </button>
+                    <div class="btn-group sort">
+                        <button style="background-color: white; width: 130px; " type="button" disabled class="btn ">
+                            <span id="selected">
+                                {{ carPackage }}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="info-text">
+                    <p style=" color: #77899b; font-size: 13px">
+                        {{'cardetail.p_59'|translate}}
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <hr />
+            </div>
+
+            <div class="ride-details" style="padding:20px; display:flex ; flex-direction: column">
+                <div class="pickup-drop-time">
+                    <div class="block-heading  " style="display: flex">
+                        {{'cardetail.d_73'|translate}}
+                    </div>
+                    <div class="start-time " style="display: flex">
+                        <div class="date-time-format">
+                            <div class="left-section">{{ pickup.getDate() }}</div>
+                            <div class="right-section ">
+                                <div class="month-year">
+                                    <label>{{ month[pickup.getMonth()] }} </label>-{{
+                    pickup.getFullYear()
+                  }}
+                                </div>
+
+                                <div class="hour-minute">
+                                    {{ pickup | date: "shortTime" }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="trip-hour " style="display: flex ; justify-content : center">
+                            <span style="color: #77899b">
+                                {{'cardetail.s_93' | translate}}
+                            </span>
+                            {{ duration }}
+                        </div>
+                        <div class="date-time-format" style="display: flex;align-items: flex-end">
+                            <div class="left-section">{{ drop.getDate() }}</div>
+                            <div class="right-section">
+                                <div class="month-year">
+                                    <label>{{ month[drop.getMonth()] }}</label>-{{ drop.getFullYear() }}
+                                </div>
+                                <div class="hour-minute">
+                                    <span>
+                                        {{ pickup | date: "shortTime" }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="venue-detail-block">
+                    <div class="pickup-venue-block">
+                        <div class="venue-name-icon">
+                            <div class="venue-icon">
+                                <span class="trigger-view">
+                                    <span class="map-icon pointer" style="cursor: pointer;color: black  ">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </span>
+                                    <div class="venue-name">
+                                        {{ locality }}
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="venue-distance">
+                            approx 7.6 km away
+                        </div>
+                    </div>
+
+                    <div class="drop-venue-block">
+                        <div class="venue-name-icon">
+                            <div class="venue-icon">
+                                <span class="trigger-view">
+                                    <span class="map-icon pointer">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </span>
+                                    <div class="venue-name">
+                                        {{ locality }}
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="venue-distance">
+                            approx 7.6 km away
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <hr />
+            </div>
+            <div class="guidelines">
+                <div class="block-heading " style="padding-bottom:8px;padding-left:20px;">
+                    {{"cardetail.d_158"|translate}}
+                </div>
+
+                <ul>
+                    <li class="font">
+                    {{'cardetail.l_163'|translate}}
+                    </li>
+                    <li class="font">
+                      {{'cardetail.l_167'|translate}}
+                    </li>
+                    <li class="font">
+                        {{'cardetail.l_171'|translate}}
+                    </li>
+                    <li class="font">
+                      {{'cardetail.l_175'|translate}}
+                    </li>
+                    <br /><br />
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="right-pane col-md-4">
+        <div class="fare-details-block  box-shadow" style="padding:10px">
+            <div class="block-heading " style="padding-left: 20px">{{'cardetail.d_185'|translate}}</div>
+            <div class="fare-block" style="padding:10px">
+                <span class="fare-name "
+                    style="font-family:proxima-nova; color: #77899b; font-size: 16px ;padding: 12px">Weekend
+                    charges</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="fare-amount">{{ weekend_fare | currency: "INR" }}</span>
+            </div>
+
+            <div class="fare-block" style="padding:10px">
+                <span class="fare-name "
+                    style="font-family:proxima-nova; color: #77899b; font-size: 16px;padding: 12px">Weekday
+                    charges</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="fare-amount">{{ weekday_fare | currency: "INR" }}</span>
+            </div>
+            <div>
+                <hr />
+            </div>
+
+            <div class="total-charge" style="padding:20px">
+                <span class="fare-name "
+                    style="font-family:proxima-nova; color: #77899b; font-size: 20px ;padding: 20px">
+                  {{'cardetail.s_208'|translate}}
+                </span>
+
+                <span class="fare-amount">{{ total_fare | currency: "INR" }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fixed-bottom container-fluid bg-light" style="margin-top: 120px">
+    <div class="  left-wrapper box-shadow"
+        style="border-radius : 6px; box-shadow: 0px 2px 8px -2px rgba(31,45,61,0.4); padding-top: 10px; padding-bottom: 10px;">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="custom-control custom-checkbox">
+                    <div class="custom-control custom-checkbox ">
+                        <form>
+                            <input type="checkbox" class="custom-control-input" id="accept-agreement"
+                                name="accept-agreement-checkbox" (change)="changeQuickBookState($event)" />
+                            <label class="custom-control-label" for="accept-agreement">
+                                <span style="color  :#1f2d3d; font-size : 12px; font-weight : 500">
+                                    {{'cardetail.s_228'|translate}}
+                                </span>
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="add-to-cart " style="padding-top: 6%">
+                    <button type="button" class="btn btn-success" (click)="changeState()"  id="quick"  disabled>
+                        {{'cardetail.b_242'|translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-upload-file></app-upload-file>
+<app-login-modal></app-login-modal>

@@ -1,0 +1,85 @@
+<div class="container shadow-sm p-3 mb-5 bg-white rounded panel">
+    <!-- <button (click)=testing()>click</button> -->
+    
+    <h4>Active Booking</h4>
+    <hr>
+    <div id="activeBookingContainer" class="booked-container-background">
+        <div class=""  *ngIf = isActiveBooking>
+        <div class="row shadow p-3 mb-5">
+            <div class="col-md-3 col-sm-3 col-10 main-date-container">
+                <label>{{day[activeBooking.bookingDate.getDay()]}}</label>
+                <h1>{{activeBooking.bookingDate.getDate()}}</h1>
+                <label>{{months[activeBooking.bookingDate.getMonth()]}} {{activeBooking.bookingDate.getFullYear()}}</label>
+            </div>
+            <div class="col-md-9 col-sm-9 col-12">
+                <table>
+                    <tr>
+                        <th>Car Model</th>
+                        <td>{{activeBooking.car.carName}}</td>
+                        <th>Car Number</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <!-- <td></td> -->
+                        <th>PickUp Date and Time</th>
+                        <th>Drop Date and Time</th>
+                        <td>{{activeBooking.car.id}}</td>
+                    </tr>
+                    <tr>
+                        <!-- <td></td> -->
+                        <td>{{activeBooking.fromDate | date : " MMMM d, y hh:mm a"}}</td>
+                        <td>{{activeBooking.tillDate | date : " MMMM d, y hh:mm a"}}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <!-- <td></td> -->
+                        <th>PickUp and Drop location</th>
+                        <td>{{activeBooking.car.location}}</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <h4>Completed Bookings</h4>
+    <hr>
+    <div id="pastBookingContainer" class="booked-container-background">
+        <div class="row shadow p-3 mb-5 bg-light" *ngFor="let booking of pastBookings">
+            <div class="col-md-3 col-sm-3 col-10">
+                <label>{{day[booking.bookingDate.getDay()]}}</label>
+                <h1>{{bookings.fromDate.getDate()}}</h1>
+                <label>{{months[booking.fromDate.getMonth()]}} {{booking.fromDate.getFullYear()}}</label>
+            </div>
+            <div class="col-md-9 col-sm-9 col-12">
+                <table>
+                    <tr>
+                        <th>Car Model</th>
+                        <td>{{booking.car.model}}</td>
+                        <th>Car Number</th>
+                        <td>{{booking.car.id}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>PickUp Date and Time</th>
+                        <th>Drop Date and Time</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{booking.fromDate}}</td>
+                        <td>{{booking.tillDate}}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>PickUp and drop location</th>
+                        <td>{{bookings.car.location}}</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

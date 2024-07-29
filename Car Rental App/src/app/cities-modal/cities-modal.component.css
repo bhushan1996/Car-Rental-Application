@@ -1,0 +1,10 @@
+.cursor-pointer {
+  cursor: pointer;
+  text-align: center;
+}
+
+.text-background {
+  margin-left: 1%;
+  text-align: center;
+  padding: 10px;
+}

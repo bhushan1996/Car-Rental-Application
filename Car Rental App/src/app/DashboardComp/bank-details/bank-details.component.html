@@ -1,0 +1,162 @@
+<div class="jumbotron conatiner">
+    <h3>Saved Cards</h3>
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4"><button class="btn btn-gradient" (click)=showAddCardModal()>+ Add New Card</button>
+        </div>
+    </div>
+    <div class="savedCardInfo shadow" id="saved-card" *ngFor="let item of cardDetails  let i = index;">
+        <div class="row">
+            <div class="col-md-2 col-sm-2 col-2 card-logo-style">
+                <img src={{cardLogo}} alt="logo" />
+            </div>
+            <div class="col-md-7 col-sm-7 col-7">
+                <label for="cardLastDigits">Ending with {{item.cardNum}}</label><br>
+                <label for="ExpiriesIn">Expires&nbsp;&nbsp;{{item.expMonth}}/{{item.expYear}}</label>
+            </div>
+            <div class="col-md-3 col-sm-3 col-3">
+                <label id="editCard-{{i}}" class="edit-label" (click)="showEditModal(item)">Edit</label>
+                &nbsp;|&nbsp;
+                <label id="deleteCard-{{i}}" class="delete-label" (click)="showDeleteModal(item)">Delete</label>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editCardModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Card</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <!-- Text input-->
+                    <div class="row">
+                        <label class="col-md-4 control-label" for="cardDNumber">Number</label>
+                        <div class="col-md-6">
+                            <input id="cardNum" name="cardNumber" type="text" [(ngModel)]='cardNumber'
+                                placeholder="Enter your card Number" autofocus="" class="form-control" required=""
+                                (input)=enableConfirmButton(cardNumber)>
+
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- Text input-->
+                    <div class="row">
+                        <label class="col-md-4 control-label" for="month">Enter expiry</label>
+                        <div class="col-md-2">
+                            <input id="month" name="month" type="text" placeholder="MM" [(ngModel)]='validMonth'
+                                class="form-control" required="" (input)=enableConfirmButton(validMonth)>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="year" name="year" type="text" placeholder="YY" [(ngModel)]='validYear'
+                                class="form-control" required="" (input)=enableConfirmButton(validYear)>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" disabled="" id="editConfirmButton"
+                        (click)=updateCard() data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div id="cardDeleteConfirm" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="icon-box">
+                        <i class="material-icons">&#xE5CD;</i>
+                    </div>
+                    <h4 class="modal-title">Are you sure?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you really want to delete these records? This process cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        (click)="deleteCard()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Modal -->
+    <div class="modal fade" id="addCardModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add new Card</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <!-- Text input-->
+                    <div class="row">
+                        <label class="col-md-4 control-label" for="cardDNumber">Number</label>
+                        <div class="col-md-6">
+                            <input id="cardNum" name="cardNumber" type="text" placeholder="Enter your card Number"
+                                autofocus="" class="form-control" required="" (input)=enableConfirmButton(cardNumber)>
+
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- Text input-->
+                    <div class="row">
+                        <label class="col-md-4 control-label" for="month">Enter expiry</label>
+                        <div class="col-md-2">
+                            <input id="addMmonth" name="addmonth" type="text" placeholder="MM" class="form-control"
+                                required="" (input)=enableAddButton(validMonth)>
+                        </div>
+                        <div class="col-md-2">
+                            <input id="addYear" name="addYear" type="text" placeholder="YY" class="form-control"
+                                required="" (input)=enableAddButton(validYear)>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <label class="col-md-4 control-label" for="cvv">Enter cvv</label>
+                        <div class="col-md-2">
+                            <input id="addCvv" name="addCvv" type="text" placeholder="cvv" class="form-control"
+                                required="" (input)=enableAddButton(validCvv)>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <label class="col-md-4 control-label" for="cvv">Enter Card Holder Name</label>
+                        <div class="col-md-6">
+                            <input id="addName" name="addName" type="text" placeholder="Card Holder Name"
+                                class="form-control" required="" (input)=enableAddButton(validName)>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" disabled="" id="addButton" (click)=updateCard()
+                        data-dismiss="modal">ADD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

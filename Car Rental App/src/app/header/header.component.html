@@ -1,0 +1,676 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav
+    id="sidebar"
+    *ngIf="dislplayNav"
+    class="bg-light  "
+    style="margin-top:97px; margin-left:18px;"
+  >
+    <ul class="list-unstyled components">
+      <li>
+       <a (click)="hideSideNavbar()" [routerLink]="['']">{{'header.a_11'|translate}}</a>
+      </li>
+      <hr>
+      <li>
+        <a  (click)="hideSideNavbar()" href="#working">{{'header.a_15'|translate}}</a>
+      </li>
+ <hr>
+      <li>
+        <a  (click)="hideSideNavbar()" href="#features">{{'header.a_19'|translate }}.</a>
+      </li>
+<hr>
+      <li>
+        <a  (click)="hideSideNavbar()" href="#footer">{{'header.a_23'|translate}}</a>
+      </li>
+      <hr>
+    </ul>
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content">
+    <nav
+      class="navbar navbar-expand-md navbar-expand-lg  navbar-light bg-info "
+      style="border-radius: 10px;"
+    >
+    
+      
+    <div class="container-fluid">
+       
+      <button
+          type="button"
+          style="background-color:turquoise; color: white;"
+          id="sidebarCollapse"
+          class="btn text-sidebar "
+          (click)="displaySideNavbar()"
+        >
+          <i class="fa fa-align-left" style="font-size:25px;"></i>
+          <span></span>
+        </button>
+
+        <div id="displaysidebtn" class = "navbar-header navbar-expand-md" style="float: right;">
+          <button class = "navbar-toggle btn "  style="background-color: turquoise;color: white;"
+             data-toggle = "collapse" data-target = "#navbarSupportedContent" aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggelnavigation">
+             <i class="fa fa-align-left" style="font-size:25px;"></i>
+             <!-- <span class = "sr-only">Toggle navigation</span> -->
+             <span class = "icon-bar"></span>
+             <span class = "icon-bar"></span>
+             <span class = "icon-bar"></span>
+          </button>
+    <!-- 		
+          <a class = "navbar-brand" href = "#">TutorialsPoint</a> -->
+       </div>
+    
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto">
+            <!-- <li class="nav-item active">
+              <input id="locationBorderShadow" value="{{address}}" data-toggle="modal" data-target="#myModal1"
+                type="text" placeholder="Select Location " (focus)="locationWindow()"
+                style="background-color:white; border-color: darkgray ; color: black; border-radius: 12px; outline: none; margin-top: 4%; text-align: center; color: black;">
+            </li> -->
+            <li class="nav-item">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+
+              <button
+                type="button"
+                class="btn btn-info"
+                data-toggle="modal"
+                data-target="#locationModal"
+                style="font-size: 15px;font-weight: bold;"
+              >
+                {{ city }}
+              </button>
+            </li>
+
+            <!-- <li class="nav-item">
+                <input class="form-control" type="text" value={{city}}  placeholder="Location" style="border-radius:5%;text-align: center; ">
+
+            </li> -->
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <li class="nav-item">
+              <div *ngIf="loginState; else elseBlock">
+                <a class="nav-link" routerLink="/dashboard"
+                ><i
+                  class="fa fa-user-circle"
+                  aria-hidden="true"
+                  style="font-size:30px;color: midnightblue;border-radius: 50%;background-color: white;"
+                ></i></a
+            >
+              </div>
+              <ng-template #elseBlock
+                >
+              <a
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#myModal"
+            
+              ><i
+                class="fa fa-user-circle"
+                aria-hidden="true"
+                style="font-size:30px;"
+              ></i
+            ></a>
+            </ng-template>
+            </li>
+
+            <!-- <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li> -->
+          </ul>
+        </div>
+      </div>
+      
+    </nav>
+
+    <div class="modal container modal fade" id="myModal1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div
+            class="modal-header"
+            style="background-color:midnightblue ; color: white;"
+          >
+            <h4 class="modal-title">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              PICK UP LOCATION
+            </h4>
+            <button
+              type="button"
+              class="close"
+              style="color: white;"
+              data-dismiss="modal"
+            >
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="container">
+              <div class="form-group container">
+                <label>Enter address</label>
+                <input
+                  type="text"
+                  style="width: 400px;"
+                  class="form-control"
+                  value="{{ address }}"
+                  (keydown.enter)="$event.preventDefault()"
+                  placeholder="Search Nearest Location"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="off"
+                  type="text"
+                  #search
+                />
+              </div>
+
+              <!-- <agm-map
+                [latitude]="latitude"
+                [longitude]="longitude"
+                [zoom]="zoom"
+              >
+                <agm-marker
+                  [latitude]="latitude"
+                  [longitude]="longitude"
+                  [markerDraggable]="true"
+                  (dragEnd)="markerDragEnd($event)"
+                ></agm-marker>
+              </agm-map> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+
+        <div class="modal-content">
+          <div
+            class="modal-header"
+            style="background-color:midnightblue ; color: white;"
+          >
+            <!-- <div class="modal-header" > -->
+            <h4 class="modal-title">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LOGIN
+            </h4>
+            <button
+              type="button"
+              class="close"
+              style="color: white;"
+              data-dismiss="modal"
+            >
+              &times;
+            </button>
+          </div>
+          <div>
+            <br />
+            <h6 style="text-align: center;">Welcome To DhoomCar</h6>
+          </div>
+          <form style="width: 90%;margin-left: 5%;">
+            <div class="form-group">
+              <span id="emailText" style="font-size: 12px;">Email address{{isLoginValid}}</span>
+              <input
+                type="email"
+                class="form-control"
+                id="loginEmail"
+                name="email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                [(ngModel)] = "validMail"
+                (input) = "validateLoginEmail()"
+              />
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+
+              <span id="passwordText" style="font-size: 12px;">Password{{isLoginPasswordValid}}
+                  </span>
+              <input
+                type="password"
+                class="form-control"
+                id="loginPassword"
+                aria-describedby="emailHelp"
+                placeholder="Enter password"
+                (input) = "validatePassword()"
+                
+              />
+              <br />
+              <button
+                type="button"
+                class="btn btn-success"
+                style="width: 100%;"
+                [disabled]="(!isLoginvalid && !isLoginPasswordValid)"
+                id="signInBtn"
+                (click)="userLogin()"
+              >
+                Login
+              </button>
+              <br /><br />
+              <!-- <h4 style="text-align: center;"> ______OR______</h4>
+            <br><br> -->
+
+              <!-- <button type="button" class="btn btn-primary" style="width: 100%;"> <img
+                src="https://image.flaticon.com/icons/svg/281/281764.svg" width="15px" height="20px"> continue with
+              Gmail </button>
+            &nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" style="width: 100%;"> <img
+                src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png" width="18px"
+                height="18px"> continue with facebook</button> -->
+              <!-- <div class="text-center" style="font-size: 13px;">New to DhoomCar? <span  data-toggle="modal" data-target="#signUpModal">Sign up</span></div> -->
+              <hr />
+              <div class="text-center" style="font-size: 14px;">
+                New to DhoomCar?
+              </div>
+              <br />
+              <div class="text-center">
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  data-toggle="modal"
+                  data-target="#signUpModal"
+                  (click)="closeLoginModal()"
+                >
+                  Sign Up
+                </button>
+                <br />
+                <br />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div id="otp" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:midnightblue ; color: white;">
+          <h4 class="modal-title">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            ENTER YOUR OTP</h4>
+          <button type="button" class="close" style="color: white;" data-dismiss="modal">&times;</button>
+        </div>
+        <div>
+          &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+          <h6 style="text-align: center;">Verification of your number is required so we can contact you about any
+            information</h6>
+        </div>
+        <br><br><br>
+        <div>
+          <h6 style="text-align: center;">Otp is sent to <a href="#" data-toggle="modal" data-target="#otp"
+              style="color: blue;">(edit)</a> </h6>
+        </div>
+        <br><br>
+
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="0" maxlength="1" />
+          </div>
+          <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="0" maxlength="1" />
+          </div>
+          <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="0" maxlength="1" />
+          </div>
+          <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="0" maxlength="1" />
+          </div>
+        </div>
+        <br><br>
+
+        <div>
+
+          <h6> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Did not recieve otp resend otp <a style="color: blue;" href="#">(Resend
+              otp)</a> </h6>
+
+        </div>
+        <br><br>
+        <div>
+          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp; &nbsp;&nbsp;
+          <button type="button" class="btn btn-success" style="width: 60%; text-align: center;"> Submit</button>
+        </div>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div> -->
+    <!-- Sign up Modal Starts-->
+    <div
+      class="modal fade"
+      id="signUpModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title " id="exampleModalLongTitle">
+              <div class="text-center">Enter Details to Sign Up</div>
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #signUpForm = "ngForm">
+            <div class="form-group">
+              <span style="font-size: 12px;">Email address</span>
+              <input
+                id="signUpEmail"
+                type="email"
+                placeholder="Enter email"
+                class="form-control"
+                required
+                [(ngModel)] = "signUpEmail"
+                name = "email"
+                #mail= "ngModel"
+                (input)="validateEmail()"
+              />
+              <div [hidden]="mail.valid || mail.pristine"
+              class="alert alert-danger">
+              Email is required
+              </div>
+              <div [hidden]="isEmailValid"
+              class="alert alert-danger">
+              Invalid Email
+              </div>
+              <div *ngIf="(mail.valid || mail.pristine)"><br></div>
+              <span style="font-size: 12px;">Full Name</span>
+              <input
+                id="signUpName"
+                type="text"
+                placeholder="Enter name"
+                class="form-control"
+                required
+                [(ngModel)] = "signUpName"
+                name = "userName"
+                #userName = "ngModel"
+              />
+              <div [hidden]="userName.valid || userName.pristine"
+              class="alert alert-danger">
+              Name is required
+              </div>
+              <div *ngIf="(userName.valid || userName.pristine)"><br></div>
+              <span style="font-size: 12px;">Mobile Number</span>
+              <input
+                id="signUpMobile"
+                type="text"
+                placeholder="Enter mobile"
+                class="form-control"
+                required
+                [(ngModel)] = "signUpMobile"
+                name = "mobile"
+                #userMobile= "ngModel"
+              />
+              <div [hidden]="userMobile.valid || userMobile.pristine"
+              class="alert alert-danger">
+              Mobile is required
+              </div>
+              <div *ngIf="(userMobile.valid || userMobile.pristine)"><br></div>
+              <span style="font-size: 12px;">Password</span>
+              <input
+                id="signUpPassword"
+                type="password"
+                placeholder="Enter password"
+                class="form-control"
+                required
+                [(ngModel)] = "signUpPassword"
+                name = "password"
+                #userPassword= "ngModel"
+              />
+              <div [hidden]="userPassword.valid || userPassword.pristine"
+              class="alert alert-danger">
+              Please enter password
+              </div>
+              <div *ngIf="(userPassword.valid || userPassword.pristine)"><br></div>
+
+              <span style="font-size: 12px;">Re-Enter Password</span>
+              <input
+                id="signUpPasswordEnter"
+                type="password"
+                placeholder="Re-Enter password"
+                class="form-control"
+                required
+                [(ngModel)] = "signUpRePassword"
+                name = "rePassword"
+                #userRePassword= "ngModel"
+              />
+              <div [hidden]="userRePassword.valid || userRePassword.pristine"
+              class="alert alert-danger">
+              Please Re-enter password
+              </div>
+              <div [hidden]= " (signUpPassword == signUpRePassword)"
+              class="alert alert-danger">
+              Passwords do not match
+              </div>
+            </div>
+          </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="createNewUser()"
+              [disabled]="!signUpForm.form.valid  || !(signUpPassword == signUpRePassword) || !isEmailValid"
+            >
+              Proceed
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Sign Up Modal Ends-->
+    <!--Registration message modal-->
+    <div class="modal" id="SignUpMsg" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign Up Response</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div *ngIf="result; else elseBlockReg">
+              <p style="font-family:Helvetica Neue;">
+                Sign Up Successful. Log in to continue
+              </p>
+            </div>
+            <ng-template #elseBlockReg style="font-family:Helvetica Neue;"
+              >User Already Exists! Try Using Different E-Mail Id</ng-template
+            >
+          </div>
+          <div class="modal-footer">
+              <button
+              type="button"
+              class="btn btn-primary"
+              (click)="openLoginModal()"
+            >
+              Login
+            </button>
+            <div *ngIf="result;else signUpButton">
+         
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+          <ng-template #signUpButton
+          > 
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="openSignupModal()"
+        >
+          Sign Up
+        </button></ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--registration message modal ends-->
+    <!-- The Modal -->
+    <div class="modal" id="locationModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Choose Your Preferred City</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div
+            class="modal-body row"
+            style="padding-top: 50px; padding-bottom: 70px;"
+          >
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+              <div
+                id="bengaluru"
+                class="cursor-pointer"
+                (click)="selectBangalore()"
+                data-dismiss="modal"
+              >
+                <img
+                  src="../assets/Bengaluru.png"
+                  alt=""
+                  style="height: 100px;"
+                />
+              </div>
+              <br />
+              <!-- <div style="margin-left: 1%; text-align: center;">Bengaluru</div> -->
+              <div id="BangaloreCity" class="rounded text-background">
+                Bangalore
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div id="mumbai" class="cursor-pointer" (click)="selectMumbai()"  data-dismiss="modal">
+                <img src="../assets/Mumbai.png" alt="" style="height: 100px;" />
+              </div>
+              <br />
+              <!-- <div style="margin-left: 1%; text-align: center;">Mumbai</div> -->
+              <div id="mumbaiCity" class="rounded text-background">Mumbai</div>
+            </div>
+            <div class="col-md-2">
+              <div id="pune" class="cursor-pointer" (click)="selectPune()"  data-dismiss="modal">
+                <img src="../assets/Pune.png" alt="" style="height: 100px;" />
+              </div>
+              <!-- <div style="margin-left: 1%; text-align: center;">Pune</div> -->
+              <br />
+              <div id="puneCity" class="rounded text-background">Pune</div>
+            </div>
+            <div class="col-md-2">
+              <div id="delhi" class="cursor-pointer" (click)="selectDelhi()"  data-dismiss="modal">
+                <img src="../assets/Delhi.png" alt="" style="height: 100px;" />
+              </div>
+              <!-- <div style="margin-left: 1%; text-align: center;">Delhi</div> -->
+              <br />
+              <div id="delhiCity" class="rounded text-background">Delhi</div>
+            </div>
+            <div class="col-md-2">
+              <div
+                id="hyderabad"
+                class="cursor-pointer"
+                (click)="selectHyderabad()"
+                data-dismiss="modal"
+              >
+                <img
+                  src="../assets/Hyderabad.png"
+                  alt=""
+                  style="height: 100px;"
+                />
+              </div>
+              <!-- <div style="margin-left: 1%; text-align: center;">Hyderabad</div> -->
+              <br />
+              <div id="hyderabadCity" class="rounded text-background">
+                Hyderabad
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--login message modal-->
+
+  <div class="modal" id="loginModalMsg" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Message</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="loginResult;else loginElse">
+         You have successfully logged in...
+          </div>
+          <ng-template #loginElse>
+              E-Mail or Password incorrect...
+          </ng-template>
+        </div>
+        <div class="modal-footer">
+            
+       
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,386 @@
+
+
+  
+<div>
+  <app-header (childEvent)="message=$event"></app-header>
+</div>
+
+<!-- banner component -->
+
+
+<div class="container  " style="margin-bottom:20px ;margin-top:-450px; width: 100%; ">
+
+  <div class="row" >
+    <img src="./assets/start.jpg" alt="fail" style="width: 97%;border-radius: 10px;margin-left: 1.5%;">
+  </div>
+
+  <!-- <div class="row" >
+    <img src="./assets/start.jpg" alt="fail" style="width: 97%;border-radius: 10px;margin-left: 1.5%;">
+  </div>
+  <div class="row" >
+    <img src="./assets/start.jpg" alt="fail" style="width: 97%;border-radius: 10px;margin-left: 1.5%;">
+  </div>
+  <div class="row" >
+    <img src="./assets/start.jpg" alt="fail" style="width: 97%;border-radius: 10px;margin-left: 1.5%;">
+  </div> -->
+
+  
+</div>
+<!-- <audio autoplay>
+  <source src="./assets/doom-16030.mp3" type="audio/mpeg">
+</audio> -->
+<!-- <div  *ngFor="let card of cards">
+  <h1>Hi</h1>
+  {{card.userName}}
+  <h1>Bye</h1>
+</div> -->
+
+<!-- DropDown menu -->
+
+<div class="row " style="width: 100%;">
+  <div class="col-md-12 textalign col-sm-12">
+    <div class="btn-group dropright " style="line-height: 30px;">
+      <button type="button" class="btn text-center" (click)="location()" id="myDrop"
+        style="background-color:#3aa5c5;color: white; ">
+        <span id="loc" style="text-align: center;" class="text-center">{{message}}</span>
+      </button>
+     
+    </div>
+  </div>
+</div>
+
+<div class="textalign col-sm-12">
+  <a><button type="button" class="btn btn-lg btn-col  " (click)="myValidation()" id="mybtn">{{'baners.a_56'|translate}}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </button></a>
+</div>
+
+
+<!-- <div class="colors" >
+    </div> -->
+<div style="text-align: center ; margin-top: 20px; margin-bottom: 20px; color:white;background-color:#3aa5c5;height: 17px;
+    "></div>
+
+
+
+<div class="advantage" id="features">
+  <h3 style="color: cadetblue;">{{'baners.h_70'|translate}}</h3>
+  <p>{{'baners.p_71'|translate}}</p>
+</div>
+
+<!-- DHOOM CAR ADVANTAGE -->
+
+
+<section class="featured-blog mtb-40  col-sm-12 col-md-12">
+  <div class="container " style="width: 100%;">
+    <div class="row ">
+      <div class="col-md-4 item col-sm-4">
+        <div class="blog-box">
+          <img src="assets/fuel.png" alt="blog1" />
+          <h3>{{'baners.h_83'|translate}}</h3>
+          <p> {{'baners.p_84'|translate}}</p>
+
+        </div>
+      </div>
+      <div class="col-md-4 item col-sm-4">
+        <div class="blog-box">
+          <img src="assets/hiddenfees.png" alt="blog1" />
+          <h3>{{'baners.h_91'|translate}}</h3>
+          <p>{{'baners.p_92'|translate}} </p>
+
+
+        </div>
+      </div>
+      <div class="col-md-4 item  col-sm-4">
+        <div class="blog-box">
+          <img src="assets/packages.png" alt="blog1" />
+          <h3>{{'baners.h_101'|translate}}</h3>
+          <p>{{'baners.p_102'|translate}}</p>
+
+        </div>
+      </div>
+      <div class="col-md-4 item col-sm-4">
+        <div class="blog-box">
+          <img src="assets/anywhere.jpg" alt="blog1" />
+          <h3>{{'baners.h_109'|translate}}</h3>
+          <p>{{'baners.p_110'|translate}}</p>
+
+        </div>
+      </div>
+      <div class="col-md-4 item col-sm-4">
+        <div class="blog-box">
+          <img src="assets/assistance.png" alt="blog1" />
+          <h3>{{'baners.h_117'|translate}}</h3>
+          <p>{{'baners.p_118'|translate}}</p>
+
+        </div>
+      </div>
+      <div class="col-md-4 item col-sm-4">
+        <div class="blog-box">
+          <img src="assets/damage.png" alt="blog1" />
+          <h3>{{'baners.h_125'|translate}}</h3>
+          <p>{{'baners.p_126'|translate}}</p>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- <div class="colors" >
+          </div>  -->
+  <h3 style="text-align: center ; margin-top: 20px; margin-bottom: 20px; color:white;background-color:#3aa5c5">{{'baners.h_137'|translate}}
+  </h3>
+  <!-- <div class="colors" >
+          </div>  -->
+
+
+  <!-- OFFER CAROUSAL -->
+
+  <div class="container-fluid">
+
+    <div class="carousal-center ">
+      <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://d2dgtayfmpkokn.cloudfront.net/wp-content/uploads/sites/679/2019/10/01144945/Nov-Web-Home-Slides-1.jpg"
+              alt="Chicago" width="100%" height="350">
+          </div>
+          <div class="carousel-item ">
+            <img src="https://i.ytimg.com/vi/l9U-yGRP-aI/maxresdefault.jpg" alt="Los Angeles" width="100%" height="350">
+          </div>
+
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container-fluid advantage " style="background-color:white">
+
+
+  <div id="working">
+    <h3 style="color: cadetblue;margin-top: 25px;">{{'baners.h_186'|translate}}</h3>
+    <p style="margin-top: 10px;">{{'baners.p_188'|translate}}</p>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row" style="margin-right: 60px;margin-left: 60px;" >
+    
+
+    <div class="card text-center"
+      style="width:13rem ;height:19rem; margin-left: 7px; margin-right: 7px;text-align: center;">
+      <img
+        src="https://www.renault.com.au/sites/default/files/styles/homepage_main_nav_vehicle_default/public/vehicles/models/images/Zoe_Side_Profile.png"
+        class="card-img-top" style="width: 100%;" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">{{'baners.h_202'|translate}}</h6>
+        <p class="card-text">{{'baners.p_203'|translate}}</p>
+
+      </div>
+    </div>
+
+    <div class="card text-center" style="width: 13rem ;height:19rem;margin-left: 7px; margin-right: 7px;">
+      <div class="img-container">
+
+        <img src="assets/document-upload.jpg" class="card-img-top" alt="...">
+      </div>
+      <div class="card-body">
+        <h6 class="card-title">{{'baners.h_214'|translate}}</h6>
+        <p class="card-text">{{'baners.p_215'|translate}}</p>
+
+      </div>
+    </div>
+
+    <div class="card text-center" style="width:13rem ;height:19rem;margin-left: 7px;margin-right: 7px;">
+      <img src="assets/unlock.jpg" style="padding-left: 15%;" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">{{'baners.h_223'|translate}}</h6>
+        <p class="card-text">{{'baners.p_224'|translate}}</p>
+
+      </div>
+    </div>
+
+    <div class="card text-center" style="width:13rem ;height:19rem;margin-left: 7px;margin-right: 7px;">
+      <img
+        src="data:image/jpeg;base64,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"
+        style="padding-left: 15%;" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">{{'baners.p_234'|translate}}</h6>
+        <p class="card-text">{{'baners.p_235'|translate}}
+        </p>
+
+      </div>
+    </div>
+
+    <div class="card text-center" style="width:13rem ;height:19rem;margin-left: 7px;margin-right: 7px;">
+      <img src="assets/return1.png" style="padding-left: 10%;" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">{{'baners.h_244'|translate}}</h6>
+        <p class="card-text">{{'baners.p_245'|translate}}</p>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<!-- <div class="container " style="margin-top: 30px;">
+  <div class="text-center">
+
+
+<h3 style="text-align: center ; margin-top: 35px; margin-bottom: 15px; color:white;width:100%;background-color:#3aa5c5">{{'baners.p_255'|translate}}
+  </h3>
+
+ <!-- <div class="container " style="margin-top: 30px;"> 
+  <div class="text-center">
+    <span class="heading ">User Rating</span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <p style="margin-top: 10px;">4.1 average based on 254 reviews.</p>
+    <hr style="border:3px solid #f1f1f1">
+  </div>
+  <div class="row">
+    <div class="side">
+      <div>5 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-5"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div>150</div>
+    </div>
+    <div class="side">
+      <div>4 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-4"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div>63</div>
+    </div>
+    <div class="side">
+      <div>3 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-3"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div>15</div>
+    </div>
+    <div class="side">
+      <div>2 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-2"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div>6</div>
+    </div>
+    <div class="side">
+      <div>1 star</div>
+    </div>
+    <div class="middle">
+      <div class="bar-container">
+        <div class="bar-1"></div>
+      </div>
+    </div>
+    <div class="side right">
+      <div>20</div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <h3 style="text-align: center ; margin-top: 35px; margin-bottom: 15px; color:white;width:100%;background-color:#3aa5c5">Our Team Members
+  </h3> -->
+
+<!-- <div class="container-fluid" style="margin-bottom: -25px; " >
+
+<!-- <h3 style="text-align: center ; margin-top: 35px; margin-bottom: 15px; color:white;width:100%;background-color:#3aa5c5">Our Team Members
+  </h3> -->
+<!-- <div class="container-fluid" style="margin-bottom: -25px; " >
+  <div class="row" style="margin-left: 12px; margin-right: 12px;">
+    
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="assets/guri.jpg" alt="Avatar" style="width:100%;height:100%;">
+      </div>
+      <div class="flip-card-back">
+        <h1>Gurwinder</h1>
+        <p>Full stack Developer</p>
+        <p>Love to Code</p>
+      </div>
+    </div>
+  </div>
+  <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="assets/rup.jpg" alt="Avatar" style="width:100%;height:100%;">
+        </div>
+        <div class="flip-card-back">
+          <h1>Gurwinder</h1>
+        <p>Full stack Developer</p>
+        <p>Love to Code</p>
+        </div>
+      </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="assets/guri.jpg" alt="Avatar" style="width:100%;height:100%;">
+          </div>
+          <div class="flip-card-back">
+            <h1>Gurwinder</h1>
+        <p>Full stack Developer</p>
+        <p>Love to Code</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/rup.jpg" alt="Avatar" style="width:100%;height:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h1>Gurwinder</h1>
+        <p>Full stack Developer</p>
+        <p>Love to Code</p>
+            </div>
+          </div>
+        </div>
+
+</div>
+</div> -->
